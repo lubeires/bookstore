@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">Filter</div>
+            <div class="card-body">
+                <p class="card-text text-center text-muted mb-1">Price</p>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group input-group-sm mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text " id="min">$</span>
+                            </div>
+                            <input placeholder="min" type="number" #min min="0" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <p class="card-text">_</p>
+                    </div>
+                    <div class="col">
+                        <div class="input-group input-group-sm mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="max">$</span>
+                            </div>
+                            <input placeholder="max" type="number" #max min="0" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="title">Title</span>
+                    </div>
+                    <input type="text" #title class="form-control">
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-primary btn-block btn-sm mx-2 px-3" (click)="filter(title.value, +min.value, +max.value)">FILTER</button>
+                    <button class="btn btn-primary btn-danger btn-sm mx-2 px-3" (click)="refresh()">CLEAR</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-9">
+        <div class="row">
+            <div class="col-4" *ngFor="let book of filteredBooks">
+                <app-product-item [book]="book"></app-product-item>
+            </div>
+            <p *ngIf="filteredBooks.length == 0">Oops... no books found!</p>
+        </div>
+    </div>
+</div>

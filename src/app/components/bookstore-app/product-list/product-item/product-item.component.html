@@ -1,0 +1,16 @@
+<div class="card bg-light mb-3" style="height: 38rem;">
+    <img [src]="book.image" alt={{book.title}} class="card-img-top">
+    <div class="card-body p-3">
+        <h5 class="card-title">{{book.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{book.subtitle}}</h6>
+    </div>
+    
+    <div class="card-footer bg-transparent text-center">
+        <p class="text-success bg-transparent text-center mb-2  " style="font-weight: bold; font-size:larger;">{{book.price | currency}}</p>
+        <div class="btn-group">
+            <a role="button" class="btn btn-success btn" [href]="book.url" target="_blank">BUY</a>
+            <a role="button" class="btn btn-outline-primary btn" [href]="book.url" target="_blank">DETAILS</a>
+        </div>
+    </div>
+    <div class="card-footer text-muted text text-center">ISBN-13 {{book.isbn13}}</div>
+</div>
